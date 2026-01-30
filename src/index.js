@@ -10,12 +10,13 @@ dotenv.config({
 
 connectDB()
 .then(() => {
-  app.listen(process.env.PORT || 8000), () => {
-    console.log(`Server is running at port : ${process.env.HOST}`);
-  }
   app.on("error", () => {
     console.log(`ERROR OCCURRED: ${error}`);
   })
+  
+  app.listen(process.env.PORT || 8000), () => {
+    console.log(`Server is running at port : ${process.env.HOST}`);
+  }
 })
 
 .catch((error) => {
